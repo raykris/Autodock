@@ -12,7 +12,7 @@ which serves as documentation for the simulator. Please include the following re
 
 Copy contents of the directory Autodock/ to your computer and use "Add to Path -> Selected Folders and Subfolders" in Matlab.
 
- Necessary toolboxes and matlab Add-ons used (Matlab version r2023)
+ Necessary toolboxes and matlab Add-ons used (Matlab version r2023a)
 -
 
 Matlab Add-ons:
@@ -36,11 +36,23 @@ The MSS toolbox by Thor I. Fossen, download from Github https://github.com/cyber
 3c. Update thrust coefficient matrix and initial conditions for the time delay in the control system
 4. Set towline lengths for the tugboats in instances of Tug #, connection at [17.5; 0] in Tug body
 5. Set connection and towline point on bulk along the sides [<-100,100>;+23 or -23] (Bulk Body) 
-6. Set initial conditions for Tug in NED [x;y;psi;u;v;r], based on limitations from point 2-5.
+6. Set initial conditions for Tug in NED [x;y;psi;u;v;r], based on limitations from point 2-5. See initial position examples below.
+7. Decide the guidance system, set angles or use waypoints, (switch)
+7a. Waypoints:
+- See that the waypoints are loaded in workspace
+- Start Bulk from the initial heading for best performance
+8. Start simulation
+
+Results:
+- There are no scopes, but use logsignals and datainspector in Simulink.
+- Run animation (see below) to see how the operation performs. 
+
+Problem:
+- If simulation runs slow after compiling, stop simulation and run animation to see tugboat placement
 
 Initial position examples
 -----------------------------------------------------------
-Bulk dimension: 246x46
+Bulk dimension: 246x46 
 Tugs dimension: 35x11.5, where the bow has circular shape with radius 5.75m
 
 ex.1: 
@@ -64,24 +76,8 @@ TugStart position can be calculated from: BulkStart+RotationMatrix*[ConnectionBu
 TugStart angle is computed by BulkAngle - Tugboat rotation relative bulk (CCW positive around bulk z-axis (down))
 
 Methods for calculating Tugstart position and angle are implemented in the file TugStart.m.
-------------------------------------------------------------------------------------------------------
 
-7. Decide the guidance system, set angles or use waypoints, (switch)
-7a. Waypoints:
-- See that the waypoints are loaded in workspace
-- Start Bulk from the initial heading for best performance
-8. Start simulation
-
-Results:
-- There are no scopes, but use logsignals and datainspector in Simulink.
-- Run animation (see below) to see how the operation performs. 
-
-Problem:
-- If simulation runs slow after compiling, stop simulation and run animation to see tugboat placement
-
-
- Info on Matlab code
--
+# Info on Matlab code
 
 SymbolicTanker: Uses bulk carrier dynamcis to create codes
 -----------------------------------------------------------
