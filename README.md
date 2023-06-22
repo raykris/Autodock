@@ -9,7 +9,7 @@ The simulator is developed through the work:
 
 which serves as documentation for the simulator. Please include the following reference when using the simulator:
 
-	H. L. Ørke, R. Kristiansen and J. T. Gravdahl. Autodock - a simulator for automated tugboat-assisted 
+	H. L. Ørke, R. Kristiansen and J. T. Gravdahl (2023). Autodock - a simulator for automated tugboat-assisted 
  	docking of large vessels. URL: https://github.com/raykris/Autodock. 
 
 Copy contents of the directory Autodock/ to your computer and use "Add to Path -> Selected Folders and Subfolders" in Matlab.
